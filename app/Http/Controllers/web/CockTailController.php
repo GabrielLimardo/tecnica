@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\web;
 
 use Illuminate\Support\Facades\Http;
 use App\Http\Clases\FilterClases;
 use Illuminate\Http\Request;
 
-class CockTailController extends Controller
+class CockTailController
 {   
     protected $link;
 

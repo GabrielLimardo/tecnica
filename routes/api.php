@@ -3,9 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\CockTailController;
-use App\Http\Controllers\PersonaListController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\api\CockTailController;
+use App\Http\Controllers\api\PersonaListController;
+use App\Http\Controllers\api\UserController;
 
 /*
 |--------------------------------------------------------------------------

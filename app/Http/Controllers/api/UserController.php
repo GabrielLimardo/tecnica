@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api;
 
 use App\Models\User;
 use App\Http\Resources\UsersResource;
 use App\Http\Requests\StoreUsersRequest;
 use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class UserController
 {
     public function index()
     {

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api;
 
 use Illuminate\Http\Request;
 use App\Models\PersonaList;
 use App\Http\Resources\ListsResource;
 use App\Http\Requests\StorePersonaListsRequest;
 
-class PersonaListController extends Controller
+class PersonaListController
 {
     public function index()
     {
