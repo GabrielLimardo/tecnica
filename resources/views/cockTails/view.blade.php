@@ -1,10 +1,3 @@
-@extends('adminlte::page')
-
-@section('title', 'Usuarios')
-
-@section('content')
-
-<link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
 <div class="container-fluid">
 
@@ -48,5 +41,3 @@
 
     </div>
 </div>
-
-@endsection

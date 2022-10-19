@@ -1,11 +1,3 @@
-@extends('adminlte::page')
-
-@section('title', 'Usuarios')
-
-@section('content')
-
-<link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
 <div class="container-fluid">
 
     <!-- Banner -->
@@ -62,12 +54,10 @@
             </div>
 
             <div class="d-flex justify-content-center col-md-12 boton_proceso">
-                <a href="{{route('clientes.index')}}">Aceptar</a>
+                <a href="{{route('personallist.index')}}">Aceptar</a>
             </div>
 
         </div>
 
     </div>
 </div>
-
-@endsection

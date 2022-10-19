@@ -1,17 +1,5 @@
-@extends('adminlte::page')
-
-@section('title', 'Usuarios')
-
-<link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
-@section('content')
-
 <div class="container-fluid">
-    <!--
-    <div class="card-body">
-        <a href="{{route('usuario.create')}}" class="btn btn-primary mb-2">Nuevo</a> -->
 
-    <!-- Banner -->
     <div class="container-fluid mb-4">
         <div class="row img-usuarios-banner">
             <!-- <img src="img/cartas_banner.png" class="banner" alt="Cartas"> -->
@@ -21,7 +9,7 @@
         </div>
     </div>
 
-    @include("notificacion")
+
     <div class="container card">
         <div class="row">
             <div class="col-12">
@@ -78,117 +66,9 @@
 
                         </tbody>
                     </table>
-
-                    {{ $users->links() }}
-
                 </div>
 
             </div>
         </div>
     </div>
 </div>
-@endsection
-
-@section('js')
-
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-@if (session('eliminar') == 'ok')
-<script>
-    Swal.fire(
-        'Eliminado!',
-        'Registro Eliminado.',
-        'success'
-    )
-</script>
-@endif
-
-@if (session('enviado') == 'ok')
-<script>
-    Swal.fire(
-        'Mails enviados!',
-        'success'
-    )
-</script>
-@endif
-
-
-<script>
-    $('.mail').submit(function(e) {
-        e.preventDefault();
-
-        Swal.fire({
-            title: 'Está seguro?',
-            text: "Desea enviar mail de bienvenida a todos los usuarios?",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, enviar mail'
-        }).then((result) => {
-            if (result.value) {
-                Swal.fire(
-                    'Atención!',
-                    'Se enviaron mail correctamente'
-                )
-                this.submit();
-            }
-
-        })
-    });
-
-    $('.mail-firma').submit(function(e) {
-        e.preventDefault();
-
-        Swal.fire({
-            title: 'Está seguro?',
-            text: "Desea enviar mail de firma pendiente a todos los usuarios?",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, enviar mail'
-        }).then((result) => {
-            if (result.value) {
-                Swal.fire(
-                    'Atención!',
-                    'Se enviaron los mails correctamente'
-                )
-                this.submit();
-            }
-
-        })
-    });
-
-
-    $('.formulario-eliminar').submit(function(e) {
-        e.preventDefault();
-
-        Swal.fire({
-            title: 'Está seguro?',
-            text: "Desea eliminar el Registro!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, Eliminar!'
-        }).then((result) => {
-            if (result.value) {
-                Swal.fire(
-                    'Atención!',
-                    'Registro será eliminado',
-                    'success'
-                )
-                this.submit();
-            } else
-                Swal.fire(
-                    'Cancelado!',
-                    'El Registro no fue Eliminado.',
-                    'success'
-                )
-
-        })
-    });
-</script>
-
-@endsection

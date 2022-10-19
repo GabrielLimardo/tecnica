@@ -8,22 +8,13 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-        <link rel="stylesheet" href="{{ URL::asset('css/custom.css') }}">
-        <link rel="stylesheet" href="css/custom.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-      
-        @livewireStyles
+        <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Scripts -->
-        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-        <script src="{{ mix('js/app.js') }}" defer></script>
-        <script src="https://kit.fontawesome.com/60e25ae04f.js" crossorigin="anonymous"></script>
-        <script src="{{ URL::asset('js/main.js') }}" ></script>
-    
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <!-- Styles -->
+        @livewireStyles
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
@@ -49,7 +40,5 @@
         @stack('modals')
 
         @livewireScripts
-
-     
     </body>
 </html>
