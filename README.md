@@ -5,8 +5,9 @@
 3-php artisan migrate
 
 4-php artisan passport:install
-
+4-php artisan jetstream:install livewire
 5-php artisan optimize; php artisan route:cache; php artisan config:clear ; php artisan cache:clear ; php artisan serve
 
 6-SERVER WORK IN http://127.0.0.1:800
 
+7-LOGIN: user= hola@gmail.com - pass=1234

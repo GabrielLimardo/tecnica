@@ -17,8 +17,6 @@ class UserController
     }
     public function create()
     {
-        $usuarios = User::all();
-
         return view('users.create')->with('mensaje', 'Usuario creado con exito');
     }
     public function store(StoreUsersRequest $request)
@@ -36,9 +34,7 @@ class UserController
     }
     public function edit($id)
     {
-
         $user=User::findOrFail($id);
-
         return view('users.edit', compact('user'));
     }
     public function update(StoreUsersRequest $request ,$id)
@@ -51,7 +47,6 @@ class UserController
     {
         $user = User::find($id);
         $user->delete();
-
         return redirect()->route('users.index')->with('User Delete', 'Ok');
     }
     

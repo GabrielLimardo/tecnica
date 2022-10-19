@@ -19,3 +19,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/cocktail', function () {
         Route::post('cocktail/filter/{type}', [CockTailController::class,'filter']);
  
 });
+
+

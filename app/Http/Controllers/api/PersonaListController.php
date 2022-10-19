@@ -12,15 +12,9 @@ class PersonaListController
     public function index()
     {
         $PersonaList = PersonaList::latest()->get();
-        $PersonalList = ListsResource::collection($PersonaList);
-        return view('list.index',compact('PersonalList'));
+        return ListsResource::collection($PersonaList);
     }
-    public function create()
-    {
-        $usuarios = PersonaList::all();
 
-        return view('list.create')->with('mensaje', 'Lista agregada con exito');
-    }
     public function store(StorePersonaListsRequest $request)
     {
         $PersonaList =  new PersonaList($request->all());
@@ -31,12 +25,7 @@ class PersonaListController
     public function show($id)
     {
         $PersonaList = PersonaList::find($id);
-        return view('list.view', compact('PersonaList'));
-    }
-    public function edit($id)
-    {
-        $PersonaList=PersonaList::findOrFail($id);
-        return view('list.edit', compact('PersonaList'));
+        return response()->json(['msj'=>$PersonaList],200);
     }
     public function update(StorePersonaListsRequest $request ,$id)
     {
@@ -48,6 +37,7 @@ class PersonaListController
     {
         $PersonaList = PersonaList::find($id);
         $PersonaList->delete();
-        return redirect()->route('list.index')->with('List Delete', 'Ok');    }
+        return response()->json(['msj'=>'PersonaList Delete'],200);
+    }
 
 }

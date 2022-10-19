@@ -21,7 +21,8 @@ class CreatePersonalistTable extends Migration
             $table->integer('stars')->nullable();
             $table->string('note', 250)->nullable();
             $table->integer('difficult')->nullable();
-            $table->timestamps()->default('current_timestamp()');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 

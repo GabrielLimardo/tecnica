@@ -75,54 +75,9 @@
         <label>Fecha de egreso</label>
     </div>
 
-    <div class="col-md-6 form-floating mb-1">
-        <select name="id_sucursal" id="id_sucursal" class="col form-select" data-Live-search="true">
-            @foreach($sucursales as $sucursal)
-            <option value="{{$sucursal -> id}}" {{$selectedsucursal== $sucursal-> id? 'selected = "selected"': ''}}>
-                {{ $sucursal->id }}-{{ $sucursal->nombre }}
-            </option>
-            @endforeach
-        </select>
-        <label>Sucursal</label>
-    </div>
-
-    <div class="col-md-6 form-floating mb-1">
-        <select name="id_gerencia" id="id_gerencia" class="col form-select" data-Live-search="true">
-            @foreach($gerencias as $gerencia)
-            <option value="{{$gerencia -> id}}" {{$selectedgerencia== $gerencia-> id? 'selected = "selected"': ''}}>
-                {{ $gerencia->id }}-{{ $gerencia->nombre }}
-            </option>
-            @endforeach
-        </select>
-        <label>Gerencia</label>
-    </div>
-
-    <div class="col-md-6 mb-1 form-floating">
-        <input type="email" name="email" id="email" class="col form-control" placeholder="E-Mail" value="{{old('email', $data->email ?? '')}}" required />
-        <label>Mail</label>
-    </div>
 
 
 
-    <div class="row">
-        <div class="col-md-6 mb-1 form-floating">
-            <input class="col form-control" type="password" name="password" id="password" placeholder="Contraseña" value=""  minlength="5" />
-            <label>Contraseña</label>
-        </div>
-
-        <div class="col-md-6 mb-1 form-floating">
-            <input class="col form-control" type="password" name="re_password" id="re_password" placeholder="Repita Contraseña" value=""  minlength="5" />
-            <label>Repetir Contraseña</label>
-        </div>
-    </div>
-
-    <div class="form-check col-md-6 ">
-        <label class="label">Firma Digital</label>
-        <div class="form-check"><input class="form-check-input" type="radio" name="firmaDigital" id="firmaDigital" value="Si" {{$usuarios->firmaDigital == 'Si' ? 'checked' : '' }}>   Si</div>
-
-        <div class="form-check"><input class="form-check-input" type="radio" name="firmaDigital" id="firmaDigital" value="No" {{$usuarios->firmaDigital == 'No' ? 'checked' : '' }}>  No</div>
-
-    </div>
 
 
 
