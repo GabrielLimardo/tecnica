@@ -35,7 +35,14 @@
 
             <div class="form-group col-md-5">
                 <label class="d-block" for="razon_social">
-                    <h5>Sector:</h5>
+                    <h5>age:</h5>
+                </label>
+                <p></p>
+            </div>
+
+            <div class="form-group col-md-5">
+                <label class="d-block" for="razon_social">
+                    <h5>contry:</h5>
                 </label>
                 <p></p>
             </div>

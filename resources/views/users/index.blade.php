@@ -50,7 +50,7 @@
                             <select name="tipo" class="form-control" id="exampleFormControlSelect1">
                                 <option value="name">Nombre</option>
                                 <option value="email">Email</option>
-                                <option value="legajo">legajo</option>
+                                <option value="legajo">Edad</option>
 
                             </select>
                             <input name="bucarpor" class="form-control my-0 py-1 me-2" type="search" placeholder="Buscar" aria-label="Search">
@@ -81,12 +81,9 @@
                                         <input title="Seleccionar todo" class="form-check-input" type="checkbox" value="" id="checkbox-all">
                                     </div>
                                 </th>
-                                <th scope="col">Legajo</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Apellido</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Rol</th>
-                                <th scope="col">Estado</th>
+                                <th scope="col">name</th>
+                                <th scope="col">email</th>
+                                <th scope="col">age</th>
                                 <th colspan="3"></th>
                             </tr>
                             @foreach ($users as $user)
@@ -96,19 +93,10 @@
                                         <input class="form-check-input checkbox-admin" type="checkbox" value="{{$user->id}}" id="{{$user->id}}">
                                     </div>
                                 </td>
-                                <td scope="row">{{ $user->legajo}}</td>
                                 <td>{{ $user->name}}</td>
-                                <td>{{ $user->last_name}}</td>
                                 <td>{{ $user->email}}</td>
-                                <td>
-                                    @isset( $user->roles[0]->name )
-                                    {{ $user->roles[0]->name}}
-                                    @endisset
-                                </td>
-                                <td>{{ $user->status}}</td>
-                                <td class="d-flex justify-center">
-                                    <a class="btn" href="{{ route('usuario.edit',$user->id)}}"><i class="fa fa-pen"></i></a>
-                                </td>
+                                <td>{{ $user->age}}</td>
+                                
                             </tr>
                             @endforeach
 

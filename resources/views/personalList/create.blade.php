@@ -23,7 +23,7 @@
         <div class="row img-usuarios-banner">
             <!-- <img src="img/cartas_banner.png" class="banner" alt="Cartas"> -->
             <div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 col-11 d-flex justify-content-end align-items-end pb-4">
-                <h1 class="titulo_seccion">Usuarios</h1>
+                <h1 class="titulo_seccion">Personal List</h1>
             </div>
         </div>
     </div>
