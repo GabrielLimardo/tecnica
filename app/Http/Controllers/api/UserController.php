@@ -20,7 +20,7 @@ class UserController
         $user =  new User($request->all());
         $user->password = Hash::make($request->password);
         $user->save();
-        return response()->json(['msj'=>'User Created'],200);
+        return response()->json(['msj'=>'User Created','id'=>$user->id],200);
     }
 
     public function show($id)
