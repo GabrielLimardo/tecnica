@@ -12,9 +12,15 @@ class UserController
     public function index()
     {
         $usuarios = User::latest()->get();
-        return UsersResource::collection($usuarios);
+        $users = UsersResource::collection($usuarios);
+        return view('users.index',compact('users'));
     }
+    public function create()
+    {
+        $usuarios = User::all();
 
+        return view('users.create')->with('mensaje', 'Usuario creado con exito');
+    }
     public function store(StoreUsersRequest $request)
     {
         $user =  new User($request->all());
@@ -26,7 +32,14 @@ class UserController
     public function show($id)
     {
         $user = User::find($id);
-        return response()->json(['msj'=>$user],200);
+        return view('users.view', compact('user'));
+    }
+    public function edit($id)
+    {
+
+        $user=User::findOrFail($id);
+
+        return view('users.edit', compact('user'));
     }
     public function update(StoreUsersRequest $request ,$id)
     {
@@ -38,7 +51,8 @@ class UserController
     {
         $user = User::find($id);
         $user->delete();
-        return response()->json(['msj'=>'User Delete'],200);
+
+        return redirect()->route('users.index')->with('User Delete', 'Ok');
     }
     
 

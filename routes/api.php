@@ -7,16 +7,7 @@ use App\Http\Controllers\api\CockTailController;
 use App\Http\Controllers\api\PersonaListController;
 use App\Http\Controllers\api\UserController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+
 
 Route::group([
     'prefix' => 'auth'
@@ -30,10 +21,10 @@ Route::group([
     ], function() {
 
         Route::get('logout', [AuthController::class,'logout']);
-        Route::resource('user', UserController::class);
-        Route::resource('cocktail',CockTailController::class);
-        Route::resource('list',PersonaListController::class);
-        Route::post('cocktail/filter/{type}', [CockTailController::class,'filter']);
+        Route::resource('apiuser', UserController::class);
+        Route::resource('apicocktail',CockTailController::class);
+        Route::resource('apilist',PersonaListController::class);
+        Route::post('apicocktail/filter/{type}', [CockTailController::class,'filter']);
  
     });
 });
