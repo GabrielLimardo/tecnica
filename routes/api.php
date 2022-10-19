@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\CockTailController;
+use App\Http\Controllers\PersonaListController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,11 +23,17 @@ Route::group([
 ], function () {
     Route::post('login',  [AuthController::class,'login']);
     Route::post('signup', [AuthController::class,'signup']);
+   
 
     Route::group([
       'middleware' => 'auth:api'
     ], function() {
+
         Route::get('logout', [AuthController::class,'logout']);
-        Route::get('user', [AuthController::class,'user']);
+        Route::resource('user', UserController::class);
+        Route::resource('cocktail',CockTailController::class);
+        Route::resource('list',PersonaListController::class);
+        Route::post('cocktail/filter/{type}', [CockTailController::class,'filter']);
+ 
     });
 });
