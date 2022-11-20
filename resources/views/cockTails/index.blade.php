@@ -57,9 +57,9 @@
                             </tr>
                             @foreach ($results as $result)
                             <tr>
-                                <td scope="row">{{ $result->strDrink}}</td>
-                                <td>{{ $result->strDrinkThumb}}</td>
-                                <td>{{ $result->idDrink}}</td>
+                                <td scope="row">{{ $result['strDrink']}}</td>
+                                <td>{{ $result['strDrinkThumb']}}</td>
+                                <td>{{ $result['idDrink']}}</td>
                     
                             </tr>
                             @endforeach

@@ -17,14 +17,14 @@ class CockTailController
 
     public function index()
     {
-       $result =  Http::get($this -> link.'filter.php?c=Cocktail')->collect();
-       return view('cockTails.index',compact('result'));
+       $results =  Http::get($this -> link.'filter.php?c=Cocktail')->collect()->first();
+       return view('cockTails.index',compact('results'));
     }
     
     public function show($id)
     {
-        $result =  Http::get($this -> link.'lookup.php?i='.$id)->collect();
-        return view('cockTails.view', compact('result'));
+        $results =  Http::get($this -> link.'lookup.php?i='.$id)->collect()->first();
+        return view('cockTails.view', compact('results'));
     }
 
     public function filter(Request $request,$type)
