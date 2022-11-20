@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
 <div class="container-fluid">
 
     <div class="container-fluid mb-4">
@@ -18,6 +20,7 @@
                     </div>
                     <form class="form-inline">
                         <div class="input-group">
+                            <form method="POST" action="{{ url('') }}" enctype="multipart/form-data">
                             <select name="tipo" class="form-control" id="exampleFormControlSelect1">
                                 <option value="name">strDrink</option>
                                 <option value="email">strDrinkThumb</option>
@@ -25,10 +28,9 @@
                                 <option value="name">stars</option>
                                 <option value="email">note</option>
                                 <option value="legajo">difficult</option>
-
                             </select>
-                            <input name="bucarpor" class="form-control my-0 py-1 me-2" type="search" placeholder="Buscar" aria-label="Search">
-                            <div class="input-group-append"><button class="btn btn-primary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button></div>
+                            <button type="submit" class="col btn btn-primary" name="submit"> Submit</button>
+                            </form>
                         </div>
                     </form>
                 </nav>
