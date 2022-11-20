@@ -18,6 +18,7 @@ class UserTest extends TestCase
             'password'=>'1234',
             'name'=>'hola',
         ]);
+        dd($response);
         self::$token = 'Bearer '. $response['access_token'];
         $response->assertStatus(200);
     }
