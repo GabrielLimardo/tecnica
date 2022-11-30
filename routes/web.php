@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\web\CockTailController;
 use App\Http\Controllers\web\PersonaListController;
 use App\Http\Controllers\web\UserController;
+use App\Http\Livewire\Clientes;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -28,7 +29,4 @@ Route::middleware([
     Route::resource('cocktail',CockTailController::class);
     Route::resource('list',PersonaListController::class);
     Route::post('cocktail/filter/{type}', [CockTailController::class,'filter']);
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
 });
