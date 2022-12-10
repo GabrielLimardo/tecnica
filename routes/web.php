@@ -28,7 +28,8 @@ Route::middleware([
 ])->group(function () {
     Route::get('logout', [AuthController::class,'logout']);
     Route::resource('user', UserController::class);
-    Route::resource('cocktail',ProductController::class);
+    Route::resource('product',ProductController::class);
     Route::resource('list',PersonaListController::class);
-    Route::post('cocktail/filter/{type}', [ProductController::class,'filter'])->name('products.filter');
+    Route::post('product/filter/{type}', [ProductController::class,'filter']);
 });
+

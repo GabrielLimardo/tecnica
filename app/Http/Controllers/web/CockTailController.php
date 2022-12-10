@@ -8,12 +8,6 @@ use Illuminate\Http\Request;
 
 class CockTailController
 {   
-    protected $link;
-
-    public function __construct()
-    {
-       $this -> link = 'www.thecocktaildb.com/api/json/v1/1/';
-    }
 
     public function index()
     {

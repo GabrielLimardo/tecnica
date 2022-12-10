@@ -15,12 +15,10 @@
                             <span id="card_title">
                                 {{ __('Product') }}
                             </span>
-
-                             {{-- <div class="float-right">
-                                <a href="{{ route('products.filter') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
-                                </a>
-                              </div> --}}
+                            <div style="display: flex; justify-content: space-between; align-items: init;">   
+                                <input name="bucarpor" class="form-control my-0 py-1 me-2" type="search" placeholder="Buscar" aria-label="Search">
+                                <button class="btn btn-primary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -29,14 +27,18 @@
                         </div>
                     @endif
 
+                  
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
+                                        <th>ID</th>
                                         
-										<th>Hola</th>
+										<th>Drink</th>
+
+										<th>Picture</th>
 
                                         <th></th>
                                     </tr>
@@ -44,20 +46,12 @@
                                 <tbody>
                                     @foreach ($products as $product)
                                         <tr>
-                                            
-											<td>{{ $product['strDrink'] }}</td>
-                                            <td>{{ $product['strDrinkThumb'] }}</td>
+                                            {{-- {{dd($product);}} --}}
                                             <td>{{ $product['idDrink']}}</td>
-
-                                            <td>
-                                                <form action="" method="POST">
-                                                    {{-- <a class="btn btn-sm btn-primary " href="{{ route('products.show',$product['idDrink']) }}"><i class="fa fa-fw fa-eye"></i> Show</a> --}}
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
-                                                </form>
-                                            </td>
-                                        </tr>
+											<td>{{ $product['strDrink']}}</td>
+                                            <td><img src="{{ $product['strDrinkThumb']}}" style="height: 150px;"> </td>
+                                       
+                                            </tr>
                                     @endforeach
                                 </tbody>
                             </table>
