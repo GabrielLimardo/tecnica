@@ -27,23 +27,23 @@ class CockTailController
         return  $result;
     }
 
-    public function filter(Request $request,$type)
+
+    public function filter(Request $request)
     {   
-        switch ($type) {
+        switch ($request->type) {
             case 'name':
                 $name =  isset ($request->name)? $request->name : null ;
-                $result =  Http::get($this -> link.'search.s='.$name)->collect();
+                $products =  Http::get($this -> link.'search.php?s='.$name)->collect();
                 break;
-            case 'ingredient_name':
-                $ingredient_name =  isset ($request->ingredient_name)? $request->ingredient_name : null ;
-                $result =  Http::get($this -> link.'search.i='.$ingredient_name)->collect();
-                break;
-            default:
-                $category =  isset ($request->category)? $request->category : null ;
-                $result =  Http::get($this -> link.'filter.php?c='.$category)->collect();
-                break;
+            // case 'ingredient_name':
+            //     $ingredient_name =  isset ($request->name)? $request->name : null ;
+            //     $products =  Http::get($this -> link.'search.php?i='.$ingredient_name)->collect();
+            //     break;
+            // default:
+            //     $category =  isset ($request->name)? $request->name : null ;
+            //     $products =  Http::get($this -> link.'filter.php?c='.$category)->collect();
+            //     break;
         }
-        return  $result;
-
+        return  $products;
     }
 }

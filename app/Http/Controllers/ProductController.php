@@ -53,17 +53,17 @@ class ProductController extends Controller
       
         switch ($request->type) {
             case 'name':
-                $name =  isset ($request->name)? $request->name : null ;
-                $products =  Http::get($this -> link.'search.s='.$name)->collect();
-                break;
-            case 'ingredient_name':
-                $ingredient_name =  isset ($request->name)? $request->name : null ;
-                $products =  Http::get($this -> link.'search.i='.$ingredient_name)->collect();
-                break;
-            default:
-                $category =  isset ($request->name)? $request->name : null ;
-                $products =  Http::get($this -> link.'filter.php?c='.$category)->collect();
-                break;
+                    $name =  isset ($request->name)? $request->name : null ;
+                    $products =  Http::get($this -> link.'search.php?s='.$name)->collect()->first();
+                    break;
+            // case 'ingredient_name':
+            //         $ingredient_name =  isset ($request->name)? $request->name : null ;
+            //         $products =  Http::get($this -> link.'search.php?i='.$ingredient_name)->collect()->first();
+            //         break;
+            // default:
+            //     $category =  isset ($request->name)? $request->name : null ;
+            //     $products =  Http::get($this -> link.'filter.php?c='.$category)->collect()->first();
+            //     break;
         }
         return view('product.index',compact('products'));
     }

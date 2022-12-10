@@ -20,8 +20,8 @@
                                 <div style="display: flex; justify-content: space-between; align-items: init;">   
                                     <select id="type" name="type" class="selectpicker show-tick"  style="border-radius: 5px; margin-right: 5px;">
                                         <option value="name"> Name </option>
-                                        <option value="ingredient_name" selected> Ingredients </option>
-                                        <option value="category">Category</option>
+                                        {{-- <option value="ingredient_name" selected> Ingredients </option>
+                                        <option value="category">Category</option> --}}
                                     </select>                                
                                     <input name="name"  id="name" class="form-control my-0 py-1 me-2" type="search" placeholder="Buscar" aria-label="Search">
                                     <button class="btn btn-primary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -52,15 +52,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($products as $product)
-                                        <tr>
-                                            {{-- {{dd($product);}} --}}
-                                            <td>{{ $product['idDrink']}}</td>
-											<td>{{ $product['strDrink']}}</td>
-                                            <td><img src="{{ $product['strDrinkThumb']}}" style="height: 150px;"> </td>
-                                       
+                                    @if (isset($products))
+                                        @foreach ($products as $product)
+                                            <tr>
+                                                {{-- {{dd($product);}} --}}
+                                                <td>{{ $product['idDrink']}}</td>
+                                                <td>{{ $product['strDrink']}}</td>
+                                                <td><img src="{{ $product['strDrinkThumb']}}" style="height: 150px;"> </td>
                                             </tr>
-                                    @endforeach
+                                        @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
