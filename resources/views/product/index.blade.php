@@ -46,9 +46,8 @@
                                         
 										<th>Drink</th>
 
-										<th>Picture</th>
+										<th>Actions</th>
 
-                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -58,7 +57,12 @@
                                                 {{-- {{dd($product);}} --}}
                                                 <td>{{ $product['idDrink']}}</td>
                                                 <td>{{ $product['strDrink']}}</td>
-                                                <td><img src="{{ $product['strDrinkThumb']}}" style="height: 150px;"> </td>
+                                                {{-- <td><img src="{{ $product['strDrinkThumb']}}" style="height: 150px;"> </td> --}}
+                                                <td> 
+                                                    <a class="btn" href="{{route('product.show',[$product['idDrink']])}}"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn" href="{{route('add',[$product['idDrink']])}}"><i class="fa-solid fa-plus"></i></a>
+                                                </td>
+
                                             </tr>
                                         @endforeach
                                     @endif

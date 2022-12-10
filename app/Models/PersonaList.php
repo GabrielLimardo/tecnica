@@ -17,6 +17,7 @@ class PersonaList extends Model
 
     protected $fillable = [
         'id',
+        'id_user',
         'strDrink',
         'strDrinkThumb',
         'idDrink',

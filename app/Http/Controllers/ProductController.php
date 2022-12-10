@@ -45,7 +45,8 @@ class ProductController extends Controller
     public function show($id)
     {
         $product =  Http::get($this -> link.'lookup.php?i='.$id)->collect()->first();
-        return view('product.view', compact('product'));
+        $product = isset($product[0]) ?  $product[0] : null ; 
+        return view('product.show', compact('product'));
     }
 
     public function filter(Request $request)
@@ -56,14 +57,6 @@ class ProductController extends Controller
                     $name =  isset ($request->name)? $request->name : null ;
                     $products =  Http::get($this -> link.'search.php?s='.$name)->collect()->first();
                     break;
-            // case 'ingredient_name':
-            //         $ingredient_name =  isset ($request->name)? $request->name : null ;
-            //         $products =  Http::get($this -> link.'search.php?i='.$ingredient_name)->collect()->first();
-            //         break;
-            // default:
-            //     $category =  isset ($request->name)? $request->name : null ;
-            //     $products =  Http::get($this -> link.'filter.php?c='.$category)->collect()->first();
-            //     break;
         }
         return view('product.index',compact('products'));
     }
