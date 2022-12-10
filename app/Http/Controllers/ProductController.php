@@ -48,23 +48,24 @@ class ProductController extends Controller
         return view('product.view', compact('product'));
     }
 
-    public function filter(Request $request,$type)
+    public function filter(Request $request)
     {   
-        switch ($type) {
+      
+        switch ($request->type) {
             case 'name':
                 $name =  isset ($request->name)? $request->name : null ;
-                $result =  Http::get($this -> link.'search.s='.$name)->collect();
+                $products =  Http::get($this -> link.'search.s='.$name)->collect();
                 break;
             case 'ingredient_name':
-                $ingredient_name =  isset ($request->ingredient_name)? $request->ingredient_name : null ;
-                $result =  Http::get($this -> link.'search.i='.$ingredient_name)->collect();
+                $ingredient_name =  isset ($request->name)? $request->name : null ;
+                $products =  Http::get($this -> link.'search.i='.$ingredient_name)->collect();
                 break;
             default:
-                $category =  isset ($request->category)? $request->category : null ;
-                $result =  Http::get($this -> link.'filter.php?c='.$category)->collect();
+                $category =  isset ($request->name)? $request->name : null ;
+                $products =  Http::get($this -> link.'filter.php?c='.$category)->collect();
                 break;
         }
-        return view('product.index',compact('result'));
+        return view('product.index',compact('products'));
     }
 
     /**

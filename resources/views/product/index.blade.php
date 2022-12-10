@@ -15,10 +15,18 @@
                             <span id="card_title">
                                 {{ __('Product') }}
                             </span>
-                            <div style="display: flex; justify-content: space-between; align-items: init;">   
-                                <input name="bucarpor" class="form-control my-0 py-1 me-2" type="search" placeholder="Buscar" aria-label="Search">
-                                <button class="btn btn-primary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                            </div>
+                            <form class="row" method="POST" action="{{route('filterProduct')}}" enctype="multipart/form-data">
+                                @csrf                            
+                                <div style="display: flex; justify-content: space-between; align-items: init;">   
+                                    <select id="type" name="type" class="selectpicker show-tick"  style="border-radius: 5px; margin-right: 5px;">
+                                        <option value="name"> Name </option>
+                                        <option value="ingredient_name" selected> Ingredients </option>
+                                        <option value="category">Category</option>
+                                    </select>                                
+                                    <input name="name"  id="name" class="form-control my-0 py-1 me-2" type="search" placeholder="Buscar" aria-label="Search">
+                                    <button class="btn btn-primary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
