@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 
 Route::middleware([
-    'auth:sanctum',
+    'auth:api',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
@@ -30,6 +30,8 @@ Route::middleware([
     Route::resource('user', UserController::class);
     Route::resource('product',ProductController::class);
     Route::resource('list',PersonaListController::class);
-    Route::post('product/filter/{type}', [ProductController::class,'filter']);
+    Route::post('product/filter', [ProductController::class,'filter'])->name('filterProduct');
+
+
 });
 

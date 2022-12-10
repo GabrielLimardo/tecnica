@@ -17,7 +17,7 @@ Route::group([
    
 
     Route::group([
-      'middleware' => 'auth:sanctum'
+      'middleware' => 'auth:api'
     ], function() {
 
         Route::get('logout', [AuthController::class,'logout']);
