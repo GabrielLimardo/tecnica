@@ -35,8 +35,15 @@ class PersonalistController extends Controller
     }
     public function update(Request $request, Personalist $Personalist)
     {
-      
-       $total =  $Personalist->update($request->all());
+        $Personalist= Personalist::where( 'idDrink', $request-> idDrink )->first();
+        $Personalist-> idDrink = $request-> idDrink; 
+        $Personalist-> strDrink = $request-> strDrink; 
+        $Personalist-> strDrinkThumb = $request-> strDrinkThumb; 
+        $Personalist-> stars = $request-> stars; 
+        $Personalist-> note = $request-> note; 
+        $Personalist-> difficult = $request-> difficult; 
+        $Personalist->save();
+
         return redirect()->route('list.index')
             ->with('success', 'Product updated successfully');
     }
