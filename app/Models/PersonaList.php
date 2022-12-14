@@ -11,7 +11,7 @@ class PersonaList extends Model
 
     public $timestamps = false;
 
-    protected $table = 'personalist';
+    protected $table = 'list';
     
     protected $primaryKey= 'id';
 

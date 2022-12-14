@@ -37,24 +37,53 @@
                                         <th>Id</th>                               
 										<th>Name</th>
 										<th>Stars</th>
-										<th>Note</th>
 										<th>Difficult</th>
+										<th>Note</th>
 
-                                        <th></th>
+                                        <th>Action</th>
+
+                                        {{-- <th></th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @if (isset($personalists))
 
                                         @foreach ($personalists as $personalist)
+
                                             <tr>
                                                 <td>{{ $personalist->idDrink }}</td>
                                                 <td>{{ $personalist->strDrink }}</td>
                                                 <td>{{ $personalist->stars }}</td>
-                                                <td>{{ $personalist->note }}</td>
                                                 <td>{{ $personalist->difficult }}</td>
+                                                <td>{{ $personalist->note }}</td>
 
-                                                <td>
+                                                {{-- <form class="row" method="POST" action="{{route('list.update', [$personalist->id])}}">
+                                                    @method("PUT")
+                                                    @csrf --}}
+                                                    <td> 
+                                                        <a class="btn" href="{{route('list.edit',[$personalist->id])}}"><i class="fa fa-pen"></i></a>
+
+                                                        <form action="{{route('list.destroy', [$personalist->id])}}" class="d-inline-block formulario-eliminar" method="POST">
+                                                            @method("delete")
+                                                            @csrf
+                                                            <button class="btn"><i class="fa fa-trash"></i></button>
+                                                        </form>
+                                                        {{-- <div style="display: flex; align-items: init;">   
+                                                            <figure>
+                                                                <a class="btn" href="{{route('list.edit',[$personalist->id])}}"><i class="fa fa-trash"></i></a>
+                                                                <figcaption> Delete </figcaption>
+                                                            </figure>
+                                                            <figure>
+                                                                <a class="btn" href="{{route('list.destroy',[$personalist->id])}}"><i class="fa fa-trash"></i></a>
+                                                                <figcaption> Delete </figcaption>
+                                                            </figure>
+                                                        </div> --}}
+
+                                                    </td>
+                                                {{-- </form> --}}
+
+
+                                                {{-- <td> --}}
                                                     {{-- <form action="{{ route('personalists.destroy',$personalist->id) }}" method="POST">
                                                         <a class="btn btn-sm btn-primary " href="{{ route('personalists.show',$personalist->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
                                                         <a class="btn btn-sm btn-success" href="{{ route('personalists.edit',$personalist->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
@@ -62,7 +91,7 @@
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
                                                     </form> --}}
-                                                </td>
+                                                {{-- </td> --}}
                                             </tr>
                                         @endforeach
                                         

@@ -11,6 +11,8 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -56,11 +58,17 @@
                                     <a class="dropdown-item" href="{{ route('list.index') }}" >
                                         {{ __('Personal List') }}
                                     </a>
+                                    @if (Auth::user()->rol == 1 )
+                                        <a class="dropdown-item" href="{{ route('users.index') }}" >
+                                            {{ __('Users') }}
+                                        </a>
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                  
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

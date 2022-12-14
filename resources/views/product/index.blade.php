@@ -59,8 +59,16 @@
                                                 <td>{{ $product['strDrink']}}</td>
                                                 {{-- <td><img src="{{ $product['strDrinkThumb']}}" style="height: 150px;"> </td> --}}
                                                 <td> 
-                                                    <a class="btn" href="{{route('product.show',[$product['idDrink']])}}"><i class="fa fa-eye"></i></a>
-                                                    <a class="btn" href="{{route('add',[$product['idDrink']])}}"><i class="fa-solid fa-plus"></i></a>
+                                                    <div class="d-inline-flex">
+                                                        <figure>
+                                                            <a class="btn" href="{{route('product.show',[$product['idDrink']])}}"><i class="fa fa-eye"></i></a>
+                                                            <figcaption> Show </figcaption>
+                                                        </figure>
+                                                        <figure>
+                                                            <a class="btn" href="{{route('add',[$product['idDrink']])}}"><i class="fa-solid fa-plus"></i></a>
+                                                            <figcaption> Save </figcaption>
+                                                        </figure>
+                                                        </div>
                                                 </td>
 
                                             </tr>

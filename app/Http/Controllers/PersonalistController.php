@@ -27,7 +27,19 @@ class PersonalistController extends Controller
         return view('personalist.index', compact('personalists'));
 
     }
+    public function edit($id)
+    {
+        $personalist = Personalist::find($id);
 
+        return view('personalist.edit', compact('personalist'));
+    }
+    public function update(Request $request, Personalist $Personalist)
+    {
+      
+       $total =  $Personalist->update($request->all());
+        return redirect()->route('list.index')
+            ->with('success', 'Product updated successfully');
+    }
     public function add($id)
     {
         $result =  Http::get($this -> link.'lookup.php?i='.$id)->collect()->first()[0];
@@ -45,12 +57,13 @@ class PersonalistController extends Controller
         return view('personalist.index', compact('personalists'));
 
     }
+
    
     public function destroy($id)
     {
         $personalist = Personalist::find($id)->delete();
 
-        return redirect()->route('personalists.index')
+        return redirect()->route('list.index')
             ->with('success', 'Personalist deleted successfully');
     }
 }

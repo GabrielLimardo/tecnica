@@ -1,0 +1,65 @@
+
+                                                <form class="row" method="POST" action="{{route('list.update', [$personalist->id])}}">
+                                                    @method("PUT")
+                                                    @csrf
+                                                    <td>{{ $personalist->idDrink }}</td>
+                                                    <td>{{ $personalist->strDrink }}</td>
+                                                    <td>
+                                                        <select id="stars" name="stars" class="selectpicker show-tick"  style="border-radius: 5px; margin-right: 5px;">
+                                                            <option value="1" {{$personalist->stars == 1? 'selected = "$personalist->stars"': ''}}> 1 </option>
+                                                            <option value="2"  {{$personalist->stars == 2? 'selected = "$personalist->stars"': ''}}> 2 </option>
+                                                            <option value="3"  {{$personalist->stars == 3? 'selected = "$personalist->stars"': ''}}> 3 </option>
+                                                            <option value="4"  {{$personalist->stars == 4? 'selected = "$personalist->stars"': ''}}> 4 </option>
+                                                            <option value="5"  {{$personalist->stars == 5? 'selected = "$personalist->stars"': ''}}> 5 </option>
+                                                        </select>  
+                                                    </td>
+                                                    <td>
+                                                        <select id="difficult" name="difficult" class="selectpicker show-tick"  style="border-radius: 5px; margin-right: 5px;">
+                                                            <option value="1"  {{$personalist->difficult == 1? 'selected = "$personalist->difficult"': ''}}> 1 </option>
+                                                            <option value="2"  {{$personalist->difficult == 2? 'selected = "$personalist->difficult"': ''}}> 2 </option>
+                                                            <option value="3"  {{$personalist->difficult == 3? 'selected = "$personalist->difficult"': ''}}> 3 </option>
+                                                            <option value="4"  {{$personalist->difficult == 4? 'selected = "$personalist->difficult"': ''}}> 4 </option>
+                                                            <option value="5"  {{$personalist->difficult == 5? 'selected = "$personalist->difficult"': ''}}> 5 </option>
+                                                        </select>  
+                                                    </td>
+                                                    
+                                                    <td>
+                                                        <input required autocomplete="off" value="{{$personalist->note}}" name="note" class="col form-control" type="text" placeholder="note">
+                                                    </td>
+                                                    <td>
+                                                        <form class="row" method="POST" action="{{route('list.update', [$personalist->id])}}">
+                                                            @csrf
+                                                            <input required autocomplete="off" value="{{$personalist->note}}" name="note" class="col form-control" type="text" placeholder="note">
+                                                            <button class="col btn btn-primary" type="submit"> Guardar </button>
+                                                        </form>
+
+                                                    </td>
+                                                    <td> 
+                                                        <div style="display: flex; align-items: init;">   
+                                                            {{-- <figure> --}}
+                                                                {{-- <button class="col btn btn-primary" type="submit"><i class="fa-solid fa-plus"></i> Guardar </button> --}}
+                                                                <button class="col btn btn-primary" type="submit"> Guardar </button>
+
+                                                                {{-- <figcaption> Save </figcaption>
+                                                            </figure> --}}
+                                                            <figure>
+                                                                <a class="btn" href="{{route('list.destroy',[$personalist->id])}}"><i class="fa fa-trash"></i></a>
+                                                                <figcaption> Delete </figcaption>
+                                                            </figure>
+                                                        </div>
+
+                                                    </td>
+                                                </form>
+                                                {{-- <td>{{ $personalist->stars }}</td>
+                                                <td>{{ $personalist->note }}</td>
+                                                <td>{{ $personalist->difficult }}</td> --}}
+
+                                                {{-- <td> --}}
+                                                    {{-- <form action="{{ route('personalists.destroy',$personalist->id) }}" method="POST">
+                                                        <a class="btn btn-sm btn-primary " href="{{ route('personalists.show',$personalist->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                        <a class="btn btn-sm btn-success" href="{{ route('personalists.edit',$personalist->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    </form> --}}
+                                                {{-- </td> --}}
