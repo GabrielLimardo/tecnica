@@ -15,10 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::create(array(
+        $this->call(RoleSeeder::class);
+
+        User::create([
             'name' => 'hola',
             'email' => 'hola@gmail.com',
             'password' =>Hash::make('1234'),
-        ));
+        ])->assignRole('Admin');
     }
 }

@@ -58,11 +58,11 @@
                                     <a class="dropdown-item" href="{{ route('list.index') }}" >
                                         {{ __('Personal List') }}
                                     </a>
-                                    @if (Auth::user()->rol == 1 )
+                                    @can('users.index')
                                         <a class="dropdown-item" href="{{ route('users.index') }}" >
                                             {{ __('Users') }}
                                         </a>
-                                    @endif
+                                    @endcan
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

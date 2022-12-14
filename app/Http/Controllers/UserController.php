@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
  */
 class UserController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -19,6 +20,7 @@ class UserController extends Controller
      */
     public function index()
     {
+
         $users = User::paginate();
 
         return view('users.index', compact('users'))
