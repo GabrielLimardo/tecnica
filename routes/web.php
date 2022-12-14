@@ -30,7 +30,9 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('logout', [AuthController::class,'logout']);
-    Route::resource('users', UserController::class);
+    Route::group(['middleware' => ['role:Admin']], function () {
+        Route::resource('users', UserController::class);
+    });
     Route::resource('product',ProductController::class);
     Route::resource('list',PersonaListController::class);
     Route::get('list/add/{id}', [PersonaListController::class,'add'])->name('add');
