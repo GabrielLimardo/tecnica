@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Http\Resources\UsersResource;
 use App\Http\Requests\StoreUsersRequest;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 
 class UserController
 {
@@ -28,7 +29,7 @@ class UserController
         $user = User::find($id);
         return response()->json(['msj'=>$user],200);
     }
-    public function update(StoreUsersRequest $request ,$id)
+    public function update(Request $request ,$id)
     {
         $user = User::find($id);
         $user->update($request->all());
